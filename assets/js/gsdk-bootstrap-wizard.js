@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Bootstrap Wizard - v1.1.2
+ * Bootstrap Wizard - v1.2.0
  =========================================================
  
  * Product Page: https://www.creative-tim.com/product/bootstrap-wizard
