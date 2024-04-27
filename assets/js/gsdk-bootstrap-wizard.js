@@ -1,7 +1,7 @@
 /*!
 
  =========================================================
- * Bootstrap Wizard - v1.1.1
+ * Bootstrap Wizard - v1.1.2
  =========================================================
  
  * Product Page: https://www.creative-tim.com/product/bootstrap-wizard
@@ -21,7 +21,7 @@ transparent = true;
 $(document).ready(function(){
 
     /*  Activate the tooltips      */
-    $('[rel="tooltip"]').tooltip();
+    // $('[rel="tooltip"]').tooltip();
 
     // Code for the Validator
     var $validator = $('.wizard-card form').validate({
@@ -133,15 +133,15 @@ $(document).ready(function(){
         readURL(this);
     });
 
-    $('[data-toggle="wizard-radio"]').click(function(){
+    $('[data-bs-toggle="wizard-radio"]').click(function(){
         wizard = $(this).closest('.wizard-card');
-        wizard.find('[data-toggle="wizard-radio"]').removeClass('active');
+        wizard.find('[data-bs-toggle="wizard-radio"]').removeClass('active');
         $(this).addClass('active');
         $(wizard).find('[type="radio"]').removeAttr('checked');
         $(this).find('[type="radio"]').attr('checked','true');
     });
 
-    $('[data-toggle="wizard-checkbox"]').click(function(){
+    $('[data-bs-toggle="wizard-checkbox"]').on('click',function(){
         if( $(this).hasClass('active')){
             $(this).removeClass('active');
             $(this).find('[type="checkbox"]').removeAttr('checked');
@@ -182,19 +182,23 @@ $(window).resize(function(){
     });
 });
 
-function refreshAnimation($wizard, index){
-    total_steps = $wizard.find('li').length;
-    move_distance = $wizard.width() / total_steps;
-    step_width = move_distance;
-    move_distance *= index;
+function refreshAnimation($wizard, index) {
+    var total_steps = $wizard.find('li').length;
+    var $step = $wizard.find('li').eq(index);
+    var step_width = $step.outerWidth();
 
-    $wizard.find('.moving-tab').css('width', step_width);
-    $('.moving-tab').css({
-        'transform':'translate3d(' + move_distance + 'px, 0, 0)',
+    var move_distance = 0;
+    for (var i = 0; i < index; i++) {
+        move_distance += $wizard.find('li').eq(i).outerWidth();
+    }
+
+    $wizard.find('.moving-tab').css({
+        'width': step_width,
+        'transform': 'translate3d(' + move_distance + 'px, 0, 0)',
         'transition': 'all 0.3s ease-out'
-
     });
 }
+
 
 function debounce(func, wait, immediate) {
 	var timeout;
