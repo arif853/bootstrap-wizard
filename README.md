@@ -42,15 +42,18 @@ Within the download you'll find the following directories and files:
 ```
 ├── assets
 │   ├── css
-│   │   ├── bootstrap.min.css
+│   │   ├── bootstrap
+|   |   |   └── bootstrap.min.css 
 │   │   ├── demo.css
 │   │   └── gsdk-bootstrap-wizard.css
 │   ├── img
 │   ├── js
-│   │   ├── bootstrap.min.js
+│   │   ├── bootstrap
+|   |   |  └── bootstrap.min.js 
 │   │   ├── gsdk-bootstrap-wizard.js
 │   │   ├── jquery-1.10.2.js
 │   │   ├── jquery-2.2.4.min.js
+│   │   ├── jquery-3.6.3.min.js
 │   │   ├── jquery.bootstrap.wizard.js
 │   │   └── jquery.validate.min.js
 │   └── scss
@@ -64,6 +67,12 @@ Within the download you'll find the following directories and files:
 
 ### Version Log 
 
+V1.2 27 Apr '24
+- Update to Bootstrap 5.2.3
+- Update to Jquery v3.6.3
+- Fix bug when adding Bootstrap
+- Change in file structure
+  
 V1.0 08 Aug '14 [initial release]
 
 V1.1 17 Sep '15
